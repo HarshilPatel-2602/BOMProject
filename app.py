@@ -4,7 +4,6 @@ import openpyxl
 import os
 import re
 import pandas as pd
-import gspread 
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'xlsx'}
@@ -103,7 +102,7 @@ def process_file(file1,file2,type):
 def home():
     return render_template("index.html")
 
-@app.route("/edit", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def edit():
     if request.method == "POST":
         type = request.form.get("type")
@@ -112,7 +111,7 @@ def edit():
         filename = 'final.xlsx' 
         return send_file(processed_file, as_attachment=True, download_name=filename)
     else:
-        return render_template("index.html")
+        return render_template("templates/index.html")
 
 
 if __name__ == '__main__':
