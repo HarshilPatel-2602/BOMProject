@@ -102,7 +102,7 @@ def process_file(file1,file2,type):
 def home():
     return render_template("index.html")
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/edit", methods=["GET", "POST"])
 def edit():
     if request.method == "POST":
         type = request.form.get("type")
