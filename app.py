@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, flash , send_file
-from werkzeug.utils import secure_filename
 import openpyxl
 import os
 import re
@@ -111,8 +110,8 @@ def edit():
         filename = 'final.xlsx' 
         return send_file(processed_file, as_attachment=True, download_name=filename)
     else:
-        return render_template("templates/index.html")
+        return render_template("index.html")
 
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=True,host='0.0.0.0')
